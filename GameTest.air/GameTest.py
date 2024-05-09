@@ -1,5 +1,6 @@
 # ---------------------------------以下為預設
 # -*- encoding=utf8 -*-
+
 __author__ = "york8536"
 
 from airtest.core.api import *
@@ -83,7 +84,6 @@ def ClickGame(gamecode):
         while not exists(Template(r"tpl1714711017065.png", record_pos=(0.075, 0.091), resolution=(2400, 1080))):
             swipe((0.8, 0.30), (0.2, 0.30), 0.6)
         touch(Template(r"tpl1714711017065.png", record_pos=(0.075, 0.091), resolution=(2400, 1080)))
-
         print("進入遊戲[10007]")
     elif gamecode == "10008":
         while not exists(Template(r"tpl1714698990255.png", record_pos=(0.114, 0.105), resolution=(2400, 1080))):
@@ -124,7 +124,6 @@ def ClickGame(gamecode):
         while not exists(Template(r"tpl1714701190630.png", record_pos=(0.26, 0.113), resolution=(2400, 1080))):
             swipe((0.8, 0.30), (0.2, 0.30), 0.6)
         touch(Template(r"tpl1714701190630.png", record_pos=(0.26, 0.113), resolution=(2400, 1080)))
-
         print("進入遊戲[10022]")
     elif gamecode == "10023":
         while not exists(Template(r"tpl1714701225000.png", record_pos=(0.059, -0.028), resolution=(2400, 1080))):
@@ -134,8 +133,10 @@ def ClickGame(gamecode):
     elif gamecode == "10038":
         while not exists(Template(r"tpl1714701612737.png", record_pos=(0.237, 0.07), resolution=(2400, 1080))):
             swipe((0.8, 0.30), (0.2, 0.30), 0.6)
-        touch(Template(r"tpl1714701612737.png", record_pos=(0.237, 0.07), resolution=(2400, 1080)))
+        touch(Template(r"tpl1714701612737.png", record_pos=(0.237, 0.07), resolution=(2400, 1080))) 
         print("進入遊戲[10038]")
+        while exists(Template(r"tpl1715239401696.png", record_pos=(-0.001, 0.181), resolution=(2400, 1080))):
+            touch((1200,960))
 # 點Spin
 def Spin():
     touch((1980, 1000))
@@ -144,10 +145,12 @@ def Spin():
 # 回到大廳
 def Leave():
     while exists(Template(r"tpl1714638613923.png", record_pos=(-0.357, -0.203), resolution=(2400, 1080))):
-        touch(Template(r"tpl1714638613923.png", record_pos=(-0.357, -0.203), resolution=(2400, 1080)))
-        sleep(1)
+        try:
+            touch(Template(r"tpl1714638613923.png", record_pos=(-0.357, -0.203), resolution=(2400, 1080)))
+        except:
+            pass      
     try:
-        wait(Template(r"tpl1714037407130.png", record_pos=(-0.27, -0.065), resolution=(2400, 1080)),timeout=10)
+        wait(Template(r"tpl1714037407130.png", record_pos=(-0.27, -0.065), resolution=(2400, 1080)),timeout=5)
         touch(Template(r"tpl1714037420151.png", record_pos=(0.371, -0.195), resolution=(2400, 1080)))
         sleep(1)
     except:
@@ -164,10 +167,10 @@ def GameTest():
 
     
 
-# # ------------------------------------------------------------------launch
+# ------------------------------------------------------------------launch
 # 全遊戲巡測
 # for x in GameCode:
 #     ClickGame(x)
 #     GameTest()
-print("123")
+
 
