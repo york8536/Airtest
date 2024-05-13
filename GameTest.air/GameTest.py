@@ -4,6 +4,7 @@
 __author__ = "york8536"
 
 from airtest.core.api import *
+from qwe import Events #導入檔案中的Class
 
 auto_setup(__file__)
 # ------------------------------------------------------------------config
@@ -24,9 +25,23 @@ GameCode=[
 "10023",
 "10038"
 ]
-    
+lobby = Events()
 # ------------------------------------------------------------------testcase
 # 關閉登入視窗
+def CheakPopup():
+    while True:
+        if "首儲":
+            lobby.emit('首儲', '首儲')
+        elif "綁定手機":
+            lobby.emit('綁定手機', '綁定手機')
+        elif "最新消息":
+            lobby.emit('最新消息', '最新消息')
+        elif "任務":
+            lobby.emit('任務', '任務')
+        elif "遊戲彈窗":
+            lobby.emit('遊戲彈窗', '遊戲彈窗')
+        else:
+            break
 def CloseLoginPopup():
     try:
         wait(Template(r"tpl1714037407130.png", record_pos=(-0.27, -0.065), resolution=(2400, 1080)),timeout=10)
@@ -58,6 +73,18 @@ def CloseLoginPopup():
         touch(Template(r"tpl1714037932892.png", record_pos=(0.343, -0.183), resolution=(2400, 1080)))
     except:
         print('*****找不到[任務]視窗')
+def CloseLoginPopupNew(Popup):
+    match Popup:
+        case "首儲":
+            print('關掉')
+        case "綁定手機":
+            print('關掉')
+        case "最新消息":
+            print('關掉')
+        case "任務":
+            print('關掉')
+        case "遊戲彈窗":
+            print('關掉')
 # 找到並點擊遊戲icon
 def ClickGame(gamecode):
     if gamecode == "10001":
@@ -261,6 +288,16 @@ def GameTest():
     
 
 # ------------------------------------------------------------------launch
+# 打開監聽事件
+lobby.on('首儲',CloseLoginPopupNew)
+lobby.on('綁定手機',CloseLoginPopupNew)
+lobby.on('最新消息',CloseLoginPopupNew)
+lobby.on('任務',CloseLoginPopupNew)
+lobby.on('遊戲彈窗',CloseLoginPopupNew)
+
+# 檢查彈窗
+CheakPopup()
+
 # 全遊戲巡測
 for x in GameCode:
     ClickGameNew(x)
