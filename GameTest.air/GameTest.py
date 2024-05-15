@@ -30,15 +30,15 @@ lobby = Events()
 # 關閉登入視窗
 def CheakPopup():
     while True:
-        if "首儲":
+        if exists(Template(r"tpl1714037407130.png", record_pos=(-0.27, -0.065), resolution=(2400, 1080))):
             lobby.emit('首儲', '首儲')
-        elif "綁定手機":
+        elif exists(Template(r"tpl1714037742771.png", record_pos=(0.015, 0.042), resolution=(2400, 1080))):
             lobby.emit('綁定手機', '綁定手機')
-        elif "最新消息":
+        elif exists(Template(r"tpl1714037630865.png", record_pos=(-0.234, -0.152), resolution=(2400, 1080))):
             lobby.emit('最新消息', '最新消息')
-        elif "任務":
+        elif exists(Template(r"tpl1714037912623.png", record_pos=(-0.028, -0.182), resolution=(2400, 1080))):
             lobby.emit('任務', '任務')
-        elif "遊戲彈窗":
+        elif exists(Template(r"tpl1714037798354.png", record_pos=(-0.001, 0.155), resolution=(2400, 1080))):
             lobby.emit('遊戲彈窗', '遊戲彈窗')
         else:
             break
