@@ -1,4 +1,4 @@
-class Events:
+class EventManager:
     def __init__(self):
         self.listeners = {}
 
