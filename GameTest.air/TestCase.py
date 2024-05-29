@@ -37,7 +37,7 @@ def ClosePopup(Popup):
 def CheakPopupNew(template, event_name):
     while True:
         if exists(template):
-            lobby.emit(event_name, event_name)
+            lobby.emit(event_name)
         else:
             break
 # 找到並點擊遊戲icon
@@ -125,6 +125,7 @@ def ClickGameNew(gamecode):
             while not exists(Template(r"tpl1714698666528.png", record_pos=(0.013, -0.033), resolution=(2400, 1080))):
                 swipe((0.8, 0.30), (0.3, 0.30), 0.6)
             touch(Template(r"tpl1714698666528.png", record_pos=(0.013, -0.033), resolution=(2400, 1080)))
+            wait(Template(r"tpl1714638613923.png", record_pos=(-0.357, -0.203), resolution=(2400, 1080)))
             print("進入遊戲[10001]")
         
         case "10002":
@@ -234,8 +235,8 @@ def Leave():
 # 遊戲測試(調整spin次數)
 def GameTest(times):
     while not exists(Template(r"tpl1714121514055.png", record_pos=(0.32, 0.193), resolution=(2400, 1080))):# 確認進到遊戲
-        sleep(1)
-    for n in range(times):
+        sleep(2)
+    for _ in range(times):
         Spin()
         while not exists(Template(r"tpl1714125010345.png", record_pos=(0.213, 0.201), resolution=(2400, 1080))):# 確認進到FG/BG
             touch((1200, 830))
@@ -244,3 +245,4 @@ def AllGameTest(times=Config.SpinTime, GameCode=Config.GameCode):
     for gamecode in GameCode:
         ClickGameNew(gamecode)
         GameTest(times)
+

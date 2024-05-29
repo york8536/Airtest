@@ -1,5 +1,6 @@
 # 每款遊戲spin次數
-SpinTime= 3
+SpinTime = 2
+
 
 # 要測試的遊戲
 GameCode=[
