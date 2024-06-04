@@ -4,8 +4,7 @@ import sys
 sys.path.append('/Users/hs059/GitHub/Airtest_Betrnk/GameTest.air')
 from airtest.core.api import *
 from TestCase import *
-import Config
-import threading
+
 
 
 event_templates = [ # 登入彈窗
@@ -27,8 +26,8 @@ lobby.on('七日簽到',ClosePopup)
 lobby.on('回到大廳',AllGameTest)
 
 # 檢查彈窗
+# CheakPopupNew(Template(r"tpl1716444686691.png", record_pos=(-0.033, 0.014), resolution=(2400, 1080)), '回到大廳')
 
-CheakPopupNew(Template(r"tpl1716444686691.png", record_pos=(-0.033, 0.014), resolution=(2400, 1080)), '回到大廳')
 # while True:
 #     threads = []
 #     for template, event_name in event_templates:
@@ -41,31 +40,10 @@ CheakPopupNew(Template(r"tpl1716444686691.png", record_pos=(-0.033, 0.014), reso
 #         thread.join()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for x in range(3):
+    Spin_New('10001')
+    print('spin', x , '次')
+print('done')
 
 
 
