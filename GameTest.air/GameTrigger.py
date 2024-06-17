@@ -51,10 +51,21 @@ def Trigger_10001(triggerType):
         case 'fg':
             wait(Template(r"tpl1717057357556.png", record_pos=(0.0, -0.074), resolution=(2400, 1080)))
             touch(Template(r"tpl1717488072253.png", record_pos=(-0.007, 0.115), resolution=(2400, 1080)))
-            while not exists(Template(r"tpl1717057578915.png", record_pos=(0.214, 0.198), resolution=(2400, 1080))):
-                touch((1211,834))
-                sleep(0.5)
-                touch((1211,834))
+            sleep(5)
+            while True:
+                if not exists(Template(r"tpl1717550135008.png",threshold=0.9, record_pos=(0.297, 0.193), resolution=(2400, 1080))):
+                    touch(Template(r"tpl1717491509207.png", record_pos=(0.338, 0.188), resolution=(2400, 1080)))
+                    sleep(0.5)
+                    touch((1211,834))
+                else:
+                    sleep(5)
+                    touch((1211,834))
+                    sleep(5)
+                    wait(Template(r"tpl1717486447305.png", record_pos=(-0.004, 0.138), resolution=(2400, 1080)))
+                    touch((1211,834))
+                    sleep(2)
+                    touch((1211,834))
+                    break
         case 'ng':
             touch((1980, 1000))
             sleep(0.2)

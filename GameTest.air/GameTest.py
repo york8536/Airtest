@@ -40,10 +40,14 @@ lobby.on('回到大廳',AllGameTest)
 #         thread.join()
 
 
+
 for x in range(3):
     Spin_New('10001')
-    print('spin', x , '次')
+    print('spin'+str(x+1)+'次')
 print('done')
+
+
+
 
 
 
